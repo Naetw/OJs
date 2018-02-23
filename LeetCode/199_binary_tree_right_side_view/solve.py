@@ -18,14 +18,13 @@ class Solution:
             remain_leaf = 1
             while self.que:
                 node = self.que.pop(0)
-                tmp = node                      # override the right-most leaf value
                 self.append_node(node.left)
                 self.append_node(node.right)
 
                 remain_leaf -= 1
 
                 if remain_leaf == 0:            # current node is the right-most leaf in its depth level
-                    ret.append(tmp.val)
+                    ret.append(node.val)
                     remain_leaf = self.leaf_num
                     self.leaf_num = 0
         return ret
